@@ -18,4 +18,12 @@ interface NoteDao {
 
     @Query("SELECT * FROM notes WHERE isDeleted = 0 ORDER BY updatedAt DESC")
     fun getAllNotes(): Flow<List<NoteEntity>>
+
+    @Query("UPDATE notes SET isDeleted = 1, updatedAt = :updatedAt WHERE id = :id")
+    suspend fun softDelete(
+        id: String,
+        updatedAt: Long
+    )
+
+    abstract fun getNotes(): Any
 }
