@@ -3,8 +3,11 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
 
-    // Generates Room & Hilt code
+    // KSP - generates Room code
     alias(libs.plugins.ksp)
+
+    // Hilt - dependency injection
+    alias(libs.plugins.hilt)
 
     // JSON Serialization
     alias(libs.plugins.kotlin.serialization)
@@ -56,6 +59,7 @@ dependencies {
     implementation(libs.androidx.material3)
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.7")
     implementation("androidx.lifecycle:lifecycle-runtime-compose:2.8.7")
+    implementation(libs.androidx.espresso.core)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -66,4 +70,6 @@ dependencies {
     implementation(libs.room.runtime)
     implementation(libs.room.ktx)
     ksp(libs.room.compiler)
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.compiler)
 }

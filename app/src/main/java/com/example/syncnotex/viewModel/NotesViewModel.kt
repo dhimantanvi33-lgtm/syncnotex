@@ -3,11 +3,13 @@ package com.example.syncnotex.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.syncnotex.data.repository.NoteRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
-
-class NoteEditorViewModel(
+import javax.inject.Inject
+@HiltViewModel
+class NoteEditorViewModel @Inject constructor(
     private val repository: NoteRepository
 ) : ViewModel() {
 
